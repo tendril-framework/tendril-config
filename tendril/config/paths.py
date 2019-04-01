@@ -9,9 +9,14 @@ depends = ['tendril.config.core']
 
 config_elements_paths = [
     ConfigOption(
-        'AUDIT_PATH',
-        "os.path.join(INSTANCE_ROOT, 'manual-audit')",
-        "Folder where files generated for manual audit should be stored"
+        'DOCSTORE_ROOT',
+        "os.path.join(INSTANCE_ROOT, 'docstore')",
+        "Folder for the docstore filesystem"
+    ),
+    ConfigOption(
+        'REFDOC_ROOT',
+        "os.path.join(INSTANCE_ROOT, 'refdocs')",
+        "Folder for the refdocs filesystem"
     ),
     ConfigOption(
         'INSTANCE_CACHE',
@@ -19,6 +24,16 @@ config_elements_paths = [
         "Folder within which the tendril instance should store it's cache(s)."
         "Make sure the the users running tendril (as well as the webserver, "
         "if the web frontend is being used) have write access to this folder."
+    ),
+    ConfigOption(
+        'SHAREDCACHE_ROOT',
+        "os.path.join(INSTANCE_CACHE, 'shared')",
+        "Folder for the shared cache filesystem"
+    ),
+    ConfigOption(
+        'AUDIT_PATH',
+        "os.path.join(INSTANCE_ROOT, 'manual-audit')",
+        "Folder where files generated for manual audit should be stored"
     ),
     ConfigOption(
         'SVN_ROOT',
@@ -43,4 +58,4 @@ config_elements_paths = [
 def load(manager):
     logger.debug("Loading {0}".format(__name__))
     manager.load_elements(config_elements_paths,
-                          doc="Tendril Local Resource Paths Configuration")
+                          doc="Tendril Resource Paths Configuration")
