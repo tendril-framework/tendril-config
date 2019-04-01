@@ -371,21 +371,6 @@ config_options_services = [
         "False",
         "Whether to use Piwik for analytics."
     ),
-    ConfigOption(
-        "TALLY_HOST",
-        "None",
-        "Tally hostname"
-    ),
-    ConfigOption(
-        "TALLY_PORT",
-        "9002",
-        "Tally port"
-    ),
-    ConfigOption(
-        "TALLY_CACHE",
-        "os.path.join(SHAREDCACHE_ROOT, 'tally')",
-        "Tally cache folder"
-    )
 ]
 
 load_config(config_options_services)
