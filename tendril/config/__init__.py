@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-# Copyright (C) 2018 Chintalagiri Shashank
+# Copyright (C) 2019 Chintalagiri Shashank
 #
 # This file is part of tendril.
 #
@@ -20,3 +20,11 @@
 
 from pkgutil import extend_path
 __path__ = extend_path(__path__, __name__)
+
+from tendril.utils.config import ConfigManager
+_manager = ConfigManager(prefix='tendril.config',
+                         legacy='tendril.config.legacy',
+                         excluded=['tendril.config.legacy'])
+
+import sys
+sys.modules[__name__] = _manager

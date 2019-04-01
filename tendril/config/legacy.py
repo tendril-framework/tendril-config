@@ -96,8 +96,6 @@ from tendril.utils.fsutils import import_
 config_module = sys.modules[__name__]
 CONFIG_PATH = os.path.abspath(inspect.getfile(inspect.currentframe()))
 
-__version__ = '0.1.4'
-
 
 class ConfigConstant(object):
     """
@@ -127,28 +125,6 @@ def load_constants(constants):
     """
     for option in constants:
         setattr(config_module, option.name, option.value)
-
-
-def get_svn_path(fpath):
-    return os.path.join(SVN_ROOT, fpath)
-
-
-# def set_config_contants(constants):
-#     """
-#     Sets the configuration constants in the Instance and Local
-#     configuration modules.
-#
-#     :param constants: list of :class:`ConfigConstant`
-#     :return: None
-#
-#     """
-#     global LOCAL_CONFIG
-#     global INSTANCE_CONFIG
-#
-#     for option in constants:
-#         setattr(INSTANCE_CONFIG, option.name, option.value)
-#         if LOCAL_CONFIG is not None:
-#             setattr(LOCAL_CONFIG, option.name, option.value)
 
 
 config_constants_basic = [
@@ -185,11 +161,6 @@ config_constants_redirected = [
         "os.path.join(INSTANCE_ROOT, 'local_config_overrides.py')",
         'Path to local overrides to the instance configuration.'
     ),
-    ConfigConstant(
-        'DOX_TEMPLATE_FOLDER',
-        "os.path.join(INSTANCE_ROOT, 'dox/templates')",
-        "Path to the template folder to use for tendril.dox"
-    )
 ]
 
 load_constants(config_constants_redirected)
@@ -199,9 +170,6 @@ INSTANCE_CONFIG = import_(INSTANCE_CONFIG_FILE)
 LOCAL_CONFIG = None
 if os.path.exists(LOCAL_CONFIG_FILE):
     LOCAL_CONFIG = import_(LOCAL_CONFIG_FILE)
-
-# set_config_contants(config_constants_basic)
-# set_config_contants(config_constants_redirected)
 
 
 class ConfigOption(object):
@@ -256,6 +224,13 @@ config_options_paths = [
         "Folder where files generated for manual audit should be stored"
     ),
     ConfigOption(
+        'INSTANCE_CACHE',
+        "os.path.join(INSTANCE_ROOT, 'cache')",
+        "Folder within which the tendril instance should store it's cache(s)."
+        "Make sure the the users running tendril (as well as the webserver, "
+        "if the web frontend is being used) have write access to this folder."
+    ),
+    ConfigOption(
         'SVN_ROOT',
         "os.path.join(INSTANCE_ROOT, 'projects')",
         "Common ancestor for all VCS checkout folders. While tendril will "
@@ -273,12 +248,10 @@ config_options_paths = [
         "and preserve performance."
     ),
     ConfigOption(
-        'INSTANCE_CACHE',
-        "os.path.join(INSTANCE_ROOT, 'cache')",
-        "Folder within which the tendril instance should store it's cache(s)."
-        "Make sure the the users running tendril (as well as the webserver, "
-        "if the web frontend is being used) have write access to this folder."
-    ),
+        'DOX_TEMPLATE_FOLDER',
+        "os.path.join(INSTANCE_ROOT, 'dox/templates')",
+        "Path to the template folder to use for tendril.dox"
+    )
 ]
 
 load_config(config_options_paths)
@@ -340,7 +313,6 @@ config_constants_fs = [
 ]
 
 load_constants(config_constants_fs)
-# set_config_contants(config_constants_fs)
 
 config_options_resources = [
     ConfigOption(
