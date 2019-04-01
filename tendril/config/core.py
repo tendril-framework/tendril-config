@@ -3,7 +3,7 @@
 import os
 from tendril.utils.config import ConfigConstant
 from tendril.utils import log
-logger = log.get_logger(__name__, log.DEBUG)
+logger = log.get_logger(__name__, log.DEFAULT)
 
 depends = []
 
@@ -34,12 +34,14 @@ config_constants_redirected = [
 
 def load(manager):
     logger.debug("Loading {0}".format(__name__))
-    manager.load_elements(config_constants_basic)
+    manager.load_elements(config_constants_basic,
+                          doc="Tendril Default Instance Root")
 
     if os.path.exists(os.path.join(manager.INSTANCE_ROOT, 'redirect')):
         logger.info("Found instance redirect")
         with open(os.path.join(manager.INSTANCE_ROOT, 'redirect'), 'r') as f:
             manager.INSTANCE_ROOT = f.read().strip()
 
-    manager.load_elements(config_constants_redirected)
+    manager.load_elements(config_constants_redirected,
+                          doc="Tendril Configuration Paths")
     manager.load_config_files()

@@ -23,7 +23,7 @@ test_requirements = [
 
 setup(
     name='tendril-config',
-    version='0.1.2',
+    version='0.1.3',
     description="Tendril Config Infrastructure",
     long_description=readme,
     author="Chintalagiri Shashank",
