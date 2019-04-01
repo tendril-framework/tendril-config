@@ -247,22 +247,12 @@ config_options_paths = [
         "using overly generic paths (like '/' or '~') to avoid surprises "
         "and preserve performance."
     ),
-    ConfigOption(
-        'DOX_TEMPLATE_FOLDER',
-        "os.path.join(INSTANCE_ROOT, 'dox/templates')",
-        "Path to the template folder to use for tendril.dox"
-    )
 ]
 
 load_config(config_options_paths)
 
 
 config_options_fs = [
-    ConfigOption(
-        'DOCUMENT_WALLET_ROOT',
-        "os.path.join(INSTANCE_ROOT, 'wallet')",
-        "Folder for the document wallet filesystem"
-    ),
     ConfigOption(
         'DOCSTORE_ROOT',
         "os.path.join(INSTANCE_ROOT, 'docstore')",
@@ -315,12 +305,6 @@ config_constants_fs = [
 load_constants(config_constants_fs)
 
 config_options_resources = [
-    ConfigOption(
-        'DOCUMENT_WALLET',
-        "{}",
-        "Dictionary containing keys and filenames of the documents "
-        "in the wallet"
-    ),
     ConfigOption(
         "PRINTER_NAME",
         "{}",
