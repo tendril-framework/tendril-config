@@ -273,7 +273,6 @@ config_options_fs = [
         'None',
         'Path to the SVN root on the SVN server'
     ),
-
 ]
 
 load_config(config_options_fs)
@@ -331,16 +330,16 @@ config_options_resources = [
         '5672',
         'Message Queue Server Host'
     ),
+    ConfigOption(
+        'FIREFOX_PROFILE_PATH',
+        "None",
+        "Path to the firefox profile to use for splinter."
+    )
 ]
 
 load_config(config_options_resources)
 
 config_options_services = [
-    ConfigOption(
-        "FIXER_IO_API_KEY",
-        "",
-        "API Key to use with fixer.io for currency rates."
-    ),
     ConfigOption(
         "APPENLIGHT_PRIVATE_API_KEY",
         "{}",
@@ -434,110 +433,6 @@ config_options_geda = [
 load_config(config_options_geda)
 
 
-config_options_network_caching = [
-    ConfigOption(
-        'ENABLE_REDIRECT_CACHING',
-        "True",
-        "Whether or not to cache 301 and 302 redirects."
-    ),
-    ConfigOption(
-        'MAX_AGE_DEFAULT',
-        '600000',
-        'Default max_age for data originating from www.'
-    ),
-    ConfigOption(
-        'FIREFOX_PROFILE_PATH',
-        "None",
-        "Path to the firefox profile to use for splinter."
-    )
-]
-
-load_config(config_options_network_caching)
-
-
-config_options_proxy = [
-    ConfigOption(
-        'NETWORK_PROXY_TYPE',
-        "None",
-        "The type of proxy to use. 'http' for squid/http, 'None' for none."
-        "No other proxy types presently supported."
-    ),
-    ConfigOption(
-        'NETWORK_PROXY_IP',
-        "None",
-        "The proxy server IP address."
-    ),
-    ConfigOption(
-        'NETWORK_PROXY_PORT',
-        "3128",
-        "The proxy server port."
-    ),
-    ConfigOption(
-        'NETWORK_PROXY_USER',
-        "None",
-        "The username to authenticate with the proxy server."
-    ),
-    ConfigOption(
-        'NETWORK_PROXY_PASS',
-        "None",
-        "The password to authenticate with the proxy server."
-    ),
-]
-
-load_config(config_options_proxy)
-
-
-config_options_db = [
-    ConfigOption(
-        'DATABASE_HOST',
-        "None",
-        "The database server host."
-    ),
-    ConfigOption(
-        'DATABASE_PORT',
-        "5432",
-        "The database server port."
-    ),
-    ConfigOption(
-        'DATABASE_USER',
-        "None",
-        "The username to login to the database server."
-    ),
-    ConfigOption(
-        'DATABASE_PASS',
-        "None",
-        "The password to login to the database server."
-    ),
-    ConfigOption(
-        'DATABASE_DB',
-        "None",
-        "The name of the database."
-    ),
-]
-
-load_config(config_options_db)
-
-
-def build_db_uri(dbhost, dbport, dbuser, dbpass, dbname):
-    """
-    Builds a ``postgresql`` DB URI from the parameters provided.
-
-    :param dbhost: Hostname / IP of the database server
-    :param dbport: Port of the database server
-    :param dbuser: Username of the database user
-    :param dbpass: Password of the database user
-    :param dbname: Name of the database
-    :return: The DB URI
-    """
-    return 'postgresql://' + \
-        dbuser + ":" + dbpass + "@" + dbhost + ':' + dbport + '/' + dbname
-
-
-DB_URI = build_db_uri(DATABASE_HOST, DATABASE_PORT,
-                      DATABASE_USER, DATABASE_PASS,
-                      DATABASE_DB)
-
-
 config_options_frontend = [
     ConfigOption(
         'USE_X_SENDFILE',
@@ -628,22 +523,6 @@ config_options_security = [
 ]
 
 load_config(config_options_security)
-
-
-config_options_currency = [
-    ConfigOption(
-        'BASE_CURRENCY',
-        "INR",
-        "The code for the base currency."
-    ),
-    ConfigOption(
-        'BASE_CURRENCY_SYMBOL',
-        "INR ",
-        "The symbol for the base currency."
-    ),
-]
-
-load_config(config_options_currency)
 
 
 config_options_company = [
@@ -857,12 +736,6 @@ all_config_option_groups = [
      "Options to configure third-party infrastructure services integration"],
     [doc_render(config_options_geda),
      "Options to configure the gEDA installation and related resources"],
-    [doc_render(config_options_network_caching),
-     "Options to configure network caching behavior"],
-    [doc_render(config_options_proxy),
-     "Options to configure a network proxy"],
-    [doc_render(config_options_db),
-     "Options to configure the instance database"],
     [doc_render(config_options_frontend),
      "Options to configure the frontend"],
     [doc_render(config_options_mail),
