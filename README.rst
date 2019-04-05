@@ -1,15 +1,16 @@
-==========================
-Tendril Costing Primitives
-==========================
+=============================
+Tendril Config Infrastructure
+=============================
 
-.. image:: https://img.shields.io/travis/chintal/tendril-costing.svg
-        :target: https://travis-ci.org/chintal/tendril-costing
+.. image:: https://img.shields.io/travis/chintal/tendril-config.svg
+        :target: https://travis-ci.org/chintal/tendril-config
 
-.. image:: https://img.shields.io/pypi/v/tendril-costing.svg
-        :target: https://pypi.python.org/pypi/tendril-costing
+.. image:: https://img.shields.io/pypi/v/tendril-config.svg
+        :target: https://pypi.python.org/pypi/tendril-config
 
 * License: AGPLv3
-* Documentation: http://tendril-costing.readthedocs.org
+* Documentation: http://tendril-config.readthedocs.org
 
 
-Tendril Costing Primitives
+Tendril Config Infrastructure
+
