@@ -525,66 +525,7 @@ config_options_security = [
 load_config(config_options_security)
 
 
-config_options_company = [
-    ConfigOption(
-        'COMPANY_NAME',
-        "None",
-        "The full name of the company"
-    ),
-    ConfigOption(
-        'COMPANY_NAME_SHORT',
-        "COMPANY_NAME",
-        "A shortened name for the company"
-    ),
-    ConfigOption(
-        'COMPANY_EMAIL',
-        "MAIL_DEFAULT_SENDER",
-        "The company email address"
-    ),
-    ConfigOption(
-        'COMPANY_ADDRESS_LINE',
-        "None",
-        "The company address, in a single line"
-    ),
-    ConfigOption(
-        'COMPANY_LOGO_PATH',
-        "None",
-        "The path to the company logo, relative to INSTANCE_ROOT"
-    ),
-    ConfigOption(
-        'COMPANY_SQUARE_LOGO_PATH',
-        "None",
-        "The path to a square company logo, relative to INSTANCE_ROOT"
-    ),
-    ConfigOption(
-        'COMPANY_BLACK_LOGO_PATH',
-        "None",
-        "The path to the company logo for use on a black background, "
-        "relative to INSTANCE_ROOT"
-    ),
-    ConfigOption(
-        'COMPANY_PO_LCO_PATH',
-        "None",
-        "The path to the company lco file for use with latex scrlttr2, "
-        "relative to INSTANCE_ROOT"
-    ),
-    ConfigOption(
-        'COMPANY_GOVT_POINT',
-        "None",
-        "The name of the person who signs documents "
-        "outbound to the government"
-    ),
-    ConfigOption(
-        'COMPANY_PO_POINT',
-        "None",
-        "The name of the person who signs documents "
-        "outbound to vendors"
-    ),
-    ConfigOption(
-        'COMPANY_IEC',
-        "None",
-        "The company import-exchange code"
-    ),
+config_options_instance_info = [
     ConfigOption(
         'INSTANCE_SOURCES',
         '"https://github.com/chintal/tendril"',
@@ -603,7 +544,7 @@ config_options_company = [
     ),
 ]
 
-load_config(config_options_company)
+load_config(config_options_instance_info)
 
 
 config_options_inventory = [
@@ -742,8 +683,8 @@ all_config_option_groups = [
      "Options to configure e-mail"],
     [doc_render(config_options_security),
      "Options to configure security features"],
-    [doc_render(config_options_company),
-     "Options to configure company details"],
+    [doc_render(config_options_instance_info),
+     "Options to configure instance information"],
     [doc_render(config_options_inventory),
      "Options to configure inventory details"],
     [doc_render(config_options_vendors),
