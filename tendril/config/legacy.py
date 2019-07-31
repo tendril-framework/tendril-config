@@ -165,11 +165,15 @@ config_constants_redirected = [
 
 load_constants(config_constants_redirected)
 
+if os.path.exists(INSTANCE_CONFIG_FILE):
+    INSTANCE_CONFIG = import_(INSTANCE_CONFIG_FILE)
+else:
+    INSTANCE_CONFIG = {}
 
-INSTANCE_CONFIG = import_(INSTANCE_CONFIG_FILE)
-LOCAL_CONFIG = None
 if os.path.exists(LOCAL_CONFIG_FILE):
     LOCAL_CONFIG = import_(LOCAL_CONFIG_FILE)
+else:
+    LOCAL_CONFIG = {}
 
 
 class ConfigOption(object):
