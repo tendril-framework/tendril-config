@@ -15,6 +15,7 @@ with open('README.rst') as readme_file:
 
 requirements = [
     'tendril-utils-core>=0.1.14',
+    'tendril-utils-fsutils',  # Temporary. Remove when legacy config is removed
 ]
 
 test_requirements = [
@@ -23,7 +24,7 @@ test_requirements = [
 
 setup(
     name='tendril-config',
-    version='0.1.9',
+    version='0.1.10',
     description="Tendril Config Infrastructure",
     long_description=readme,
     author="Chintalagiri Shashank",
