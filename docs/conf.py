@@ -59,6 +59,7 @@ extensions = [
     'sphinx.ext.graphviz',
     'sphinx.ext.autosummary',
     'sphinxarg.ext',
+    'sphinxcontrib.documentedlist'
 ]
 
 # Add any paths that contain templates here, relative to this directory.

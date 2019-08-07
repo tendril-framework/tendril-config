@@ -37,7 +37,7 @@ install_requires = core_dependencies + ['wheel']
 
 setup_requires = ['setuptools_scm']
 
-doc_requires = setup_requires + ['sphinx', 'sphinx-argparse', 'alabaster']
+doc_requires = setup_requires + ['sphinx', 'sphinx-argparse', 'alabaster', 'sphinxcontrib-documentedlist']
 
 test_requires = doc_requires + ['pytest', 'pytest-flake8', 'pytest-cov', 'coveralls[yaml]']
 
