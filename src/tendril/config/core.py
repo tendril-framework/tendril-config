@@ -50,6 +50,14 @@ config_constants_redirected = [
     ),
 ]
 
+config_constants_external = [
+    ConfigConstant(
+        'EXTERNAL_CONFIG_SOURCES',
+        "os.path.join(INSTANCE_ROOT, 'external_configs.yaml')",
+        "Path to a yaml definition file mapping to external config sources."
+    )
+]
+
 
 def load(manager):
     logger.debug("Loading {0}".format(__name__))
@@ -63,4 +71,8 @@ def load(manager):
 
     manager.load_elements(config_constants_redirected,
                           doc="Tendril Configuration Paths")
+
+    manager.load_elements(config_constants_external,
+                          doc="External Configuration Sources")
+
     manager.load_config_files()
