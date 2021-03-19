@@ -403,52 +403,6 @@ config_options_frontend = [
 load_config(config_options_frontend)
 
 
-config_options_mail = [
-    ConfigOption(
-        'MAIL_USERNAME',
-        "None",
-        "The username to authenticate with the SMTP server"
-    ),
-    ConfigOption(
-        'MAIL_PASSWORD',
-        "None",
-        "The password to authenticate with the SMTP server"
-    ),
-    ConfigOption(
-        'MAIL_DEFAULT_SENDER',
-        "None",
-        "The sender to use when sending emails"
-    ),
-    ConfigOption(
-        'MAIL_SERVER',
-        "None",
-        "The host of the SMTP server to use"
-    ),
-    ConfigOption(
-        'MAIL_PORT',
-        "None",
-        "The port of the SMTP server to use"
-    ),
-    ConfigOption(
-        'MAIL_PORT',
-        "587",
-        "The port of the SMTP server to use"
-    ),
-    ConfigOption(
-        'MAIL_USE_SSL',
-        "True",
-        "Whether to use SSL when sending emails"
-    ),
-    ConfigOption(
-        'MAIL_USE_TLS',
-        "False",
-        "Whether to use TLS when sending emails"
-    )
-]
-
-load_config(config_options_mail)
-
-
 config_options_security = [
     ConfigOption(
         'ADMIN_USERNAME',
@@ -480,29 +434,6 @@ config_options_security = [
 ]
 
 load_config(config_options_security)
-
-
-config_options_instance_info = [
-    ConfigOption(
-        'INSTANCE_SOURCES',
-        '"https://github.com/chintal/tendril"',
-        'The location of the sources of the tendril code used by the instance'
-    ),
-    ConfigOption(
-        'INSTANCE_FOLDER_SOURCES',
-        '"https://github.com/chintal/tendril-instance-cookiecutter"',
-        'The location of the sources of the tendril instance folder used by '
-        'the instance'
-    ),
-    ConfigOption(
-        'INSTANCE_DOCUMENTATION_PATH',
-        '"http://tendril.chintal.in/doc"',
-        "The location of the documentation related to the instance"
-    ),
-]
-
-load_config(config_options_instance_info)
-
 
 config_options_inventory = [
     ConfigOption(
@@ -636,12 +567,8 @@ all_config_option_groups = [
      "Options to configure the gEDA installation and related resources"],
     [doc_render(config_options_frontend),
      "Options to configure the frontend"],
-    [doc_render(config_options_mail),
-     "Options to configure e-mail"],
     [doc_render(config_options_security),
      "Options to configure security features"],
-    [doc_render(config_options_instance_info),
-     "Options to configure instance information"],
     [doc_render(config_options_inventory),
      "Options to configure inventory details"],
     [doc_render(config_options_vendors),
