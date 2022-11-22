@@ -29,7 +29,7 @@ def read(fname):
 
 
 core_dependencies = [
-    'tendril-utils-core',
+    'tendril-utils-core>=0.4.0',
     'tendril-utils-fsutils',  # Temporary. Remove when legacy config is removed
 ]
 
