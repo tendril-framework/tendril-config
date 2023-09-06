@@ -29,6 +29,12 @@ depends = ['tendril.config.core']
 
 config_elements_coremeta = [
     ConfigOption(
+        'COMPONENT_NAME',
+        "''",
+        "Name of the component. To be used for log generation and identification "
+        "of source component on platform level artefacts."
+    ),
+    ConfigOption(
         'ADMIN_FULLNAME',
         "''",
         "Instance Administrator Name"
